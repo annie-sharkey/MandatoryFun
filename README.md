@@ -1,0 +1,2 @@
+# MandatoryFun
+Slack bot
