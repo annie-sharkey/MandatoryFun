@@ -24,7 +24,8 @@ app.get("/", function(req, res) {
   res.send("Ngrok is working! Path Hit: " + req.url);
 });
 
-app.post("/command/newcompetition", (req, res) => {
+//Opens new competition dialog for competition name and description
+app.post("/command/new_competition", (req, res) => {
   const { token, text, trigger_id } = req.body;
 
   // check that the verification token matches expected value
@@ -67,3 +68,27 @@ app.post("/command/newcompetition", (req, res) => {
     res.sendStatus(500);
   }
 });
+
+//Receive dialog data after submit
+//TODO: Store in db
+app.post("/dialog", (req, res) => {
+  const body = JSON.parse(req.body.payload);
+  console.log("body: ", body);
+  // check that the verification token matches expected value
+  if (body.token === process.env.VERIFICATION_TOKEN) {
+    // immediately respond with a empty 200 response to let
+    // Slack know the command was received
+    res.send("");
+
+    console.log("competition title: ", body.submission.title);
+  } else {
+    res.sendStatus(500);
+  }
+});
+
+
+// app.post("/command/add_team", (req, res) => {
+//     //want a menu of the channels to display
+//     //choose one channel and hit add
+//     //then that gets stored with competition name 
+// })
