@@ -9,4 +9,7 @@ Step 2: Add teams (channels) to the competition with `/add_channel`
 
 Other commands:
 - `/delete_competition`
-- 
+- `/new_challenge`
+- `/delete_challenge`
+- `/end_competition`
+
