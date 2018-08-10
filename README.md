@@ -24,3 +24,8 @@ Other commands that I need to make:
 Problems I eventually need to deal with:
 - authentication from different app/users
 
+TODO August 10:
+- pass web client from index.js or read about it
+- make commands folder
+- put interactions not in index.js
+
