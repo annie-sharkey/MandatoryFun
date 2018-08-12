@@ -1,13 +1,13 @@
 const { WebClient } = require("@slack/client");
 const web = new WebClient(process.env.AUTH_TOKEN);
 
-exports.addTeam = function(req, res) {
+exports.addTeam = function(body, channelID) {
+  console.log("add team body:", body);
   //   console.log("body: ", req.body.user_name);
-  console.log("text: ", req.body.text);
-  res.send("");
+  // console.log("text: ", req.body.text);
 
-  const channelID = req.body.channel_id;
-  const competitionName = req.body.text;
+  // const channelID = body.channel_id;
+  const competitionName = body.text;
 
   //TODO: when I connect to db, check that channel isn't already added to the list and that
   //competition name presented exists
@@ -32,12 +32,12 @@ exports.addTeam = function(req, res) {
             callback_id: "add_team_to_competition",
             actions: [
               {
-                name: "channels_list",
+                name: "channels_menu",
                 type: "select",
                 data_source: "channels"
               },
               {
-                name: "add_team_button",
+                name: "select_team_button",
                 text: "Select Team",
                 type: "button"
               }

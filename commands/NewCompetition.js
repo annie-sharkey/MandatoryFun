@@ -8,14 +8,13 @@ exports.newCompetition = function(req, res) {
   if (token === process.env.VERIFICATION_TOKEN) {
     const dialog = JSON.stringify({
       title: "Create a new competition",
-      callback_id: "submit-ticket",
+      callback_id: "submit-new-competition",
       submit_label: "Next",
       elements: [
         {
           label: "Competition Title",
           type: "text",
           name: "title",
-          //   value: text,
           placeholder: "Give your competition a unique name"
         },
         {
