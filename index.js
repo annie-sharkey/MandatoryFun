@@ -9,7 +9,6 @@ var newCompetition = require("./commands/NewCompetition");
 var addTeam = require("./commands/AddTeam");
 var submitNewCompetition = require("./interactions/SubmitNewCompetition");
 var submitTeam = require("./interactions/SubmitTeam");
-// var addAnotherTeam = require("./interactions/AddAnotherTeam");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
